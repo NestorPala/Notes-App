@@ -4,7 +4,7 @@ import { NotesList } from "./Notes/NotesList"
 function App() {
   return (
     <div>
-      <h1>Notes</h1>
+      <h1>My Notes</h1>
       <NotesList />
     </div>
   );

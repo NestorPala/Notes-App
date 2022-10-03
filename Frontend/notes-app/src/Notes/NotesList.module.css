@@ -1,11 +1,16 @@
 .NotesList {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 50vw);
+    justify-content: center;
+}
+
+@media (min-width: 600px) {
+    .NotesList {
+        grid-template-columns: repeat(auto-fill, 40vw);
+    }
 }
 
 @media (max-width: 600px) {
     .NotesList {
         grid-template-columns: auto;
-        justify-content: center;
     }
 }
