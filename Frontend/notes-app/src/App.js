@@ -1,5 +1,5 @@
 import './App.css';
-import { NotesList } from "./Notes/NotesList"
+import { NotesList } from "./NotesList/NotesList"
 
 function App() {
   return (

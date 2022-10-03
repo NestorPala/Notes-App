@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Note } from "./Note";
+import { Note } from "./Note/Note";
 import styles from "./NotesList.module.css";
 import { NoNotesMessage } from "./NoNotesMessage";
 
