@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Note } from "./Note";
 import styles from "./NotesList.module.css";
+import { NoNotesMessage } from "./NoNotesMessage";
 
 export function NotesList() {
     let notesUrl = "http://localhost:3000/notes";
@@ -12,6 +13,10 @@ export function NotesList() {
             .then(setNotes);
     }, []);
 
+    if (notes == null) {
+        return <NoNotesMessage />
+    }
+
     return (
         (notes.length > 0)
             ? (
@@ -21,6 +26,6 @@ export function NotesList() {
                     )}
                 </div>
             )
-            : (<h2 className={styles.noNotesMessage}>(No notes to show)</h2>)
+            : <NoNotesMessage />
     );
 }
