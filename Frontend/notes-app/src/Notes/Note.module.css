@@ -1,7 +1,12 @@
 .Note {
-    width: 40vw;
     margin: 20px;
     border: solid black 3px;
     text-align: center;
     border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+    .Note {
+        width: 80vw;
+    }
 }
