@@ -1,0 +1,7 @@
+.Note {
+    width: 40vw;
+    margin: 20px;
+    border: solid black 3px;
+    text-align: center;
+    border-radius: 8px;
+}

@@ -1,0 +1,6 @@
+.NotesList {
+    display: flex;
+}
+.noNotesMessage {
+    margin: 20px;
+}
