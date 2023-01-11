@@ -25,12 +25,8 @@ export function NotesList() {
                     <Note key={note.id} title={note.title} content={note.content} />
                 )}
             </div>
-            {(notes.length === 0) ? renderNoNotesMessage() : null}
+            {(notes.length === 0) ? <NoNotesMessage /> : null}
             <ButtonAddNote />
         </div>
     );
-}
-
-function renderNoNotesMessage(props) {
-    return <NoNotesMessage />;
 }
