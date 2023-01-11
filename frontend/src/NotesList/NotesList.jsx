@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Note } from "./Note/Note";
 import styles from "./NotesList.module.css";
 import { NoNotesMessage } from "./NoNotesMessage";
-import { ButtonAddNote } from "./ButtonAddNote";
+import { AddNoteForm } from "./AddNoteForm";
 
 export function NotesList() {
     let notesUrl = "http://localhost:3000/notes";
@@ -26,7 +26,7 @@ export function NotesList() {
                 )}
             </div>
             {(notes.length === 0) ? <NoNotesMessage /> : null}
-            <ButtonAddNote />
+            <AddNoteForm url={notesUrl} />
         </div>
     );
 }
