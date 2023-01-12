@@ -14,7 +14,7 @@ export function Note(props) {
         <RemoveNoteButton note={props.note} url={props.url} onRemove={props.onUpdate} />
         {
           (props.note.is_archived === true) 
-          ? <UnarchiveNoteButton note={props.note} url={props.url} onOnarchiveNote={props.onUpdate} /> 
+          ? <UnarchiveNoteButton note={props.note} url={props.url} onUnarchiveNote={props.onUpdate} /> 
           : <ArchiveNoteButton note={props.note} url={props.url} onArchiveNote={props.onUpdate} />
         }
       </div>
