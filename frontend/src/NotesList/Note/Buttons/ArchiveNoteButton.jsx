@@ -8,7 +8,7 @@ function archiveNote(event, props) {
     };
     fetch(url, options)
         .then(res => res.json())
-        .then(json => props.onArchiveNote());
+        .then(json => props.onArchiveNote(json));
 };
 
 export function ArchiveNoteButton(props) {

@@ -10,10 +10,13 @@ export function NotesList() {
     const [notes, setNotes] = useState(null);
     useEffect(() => updateNotes, []);
 
-    const updateNotes = () => {
+    const updateNotes = (updateResponse = {}) => {
         fetch(notesUrl)
             .then(response => response.json())
-            .then(setNotes);
+            .then(json => {
+                setNotes(json);
+                console.log(updateResponse);
+            });
     };
 
     if (notes == null) {

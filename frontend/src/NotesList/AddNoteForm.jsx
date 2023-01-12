@@ -14,7 +14,7 @@ export function AddNoteForm(props) {
         };
         fetch(url, options)
             .then(res => res.json())
-            .then(json => props.addNote());
+            .then(json => props.addNote(json));
     };
     return (
         <form onSubmit={handleSubmit}>
