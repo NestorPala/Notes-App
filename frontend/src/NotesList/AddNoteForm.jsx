@@ -28,7 +28,11 @@ export function AddNoteForm(props) {
         };
         fetch(url, options)
             .then(res => res.json())
-            .then(json => props.addNote(json));
+            .then(json => {
+                event.target.title.value = "";
+                event.target.content.value = "";
+                props.addNote(json);
+            });
     };
     return (
         <form onSubmit={handleSubmit}>
