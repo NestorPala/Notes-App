@@ -37,7 +37,18 @@ export function AddNoteForm(props) {
     return (
         <form onSubmit={handleSubmit}>
             <input name="title" type="text" placeholder="Note title"/>
-            <input name="content" type="text" placeholder="Note content"/>
+            <br />
+            <textarea 
+            style={{
+                width: 200, 
+                height: 100, 
+                overflowY: "scroll",
+                resize: "none"
+            }}
+            name="content" 
+            type="text" 
+            placeholder="Note content"/>
+            <br />
             <button type="submit">Add note!</button>
         </form>
     );

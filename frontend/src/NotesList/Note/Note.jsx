@@ -8,7 +8,9 @@ export function Note(props) {
   return (
     <div className={styles.Note}>
       <h2>{props.note.title}</h2>
-      <p>{props.note.content}</p>
+      <div style={{wordWrap: "break-word"}}>
+        {props.note.content}
+      </div>
       <div>
         {(props.note.content === "") ? <p style={{fontStyle: "italic"}}>(Empty content)</p> : null}
         {
