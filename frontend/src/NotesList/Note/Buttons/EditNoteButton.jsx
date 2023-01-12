@@ -17,6 +17,10 @@ function editNote(event, props) {
         }
     }
 
+    if (window.confirm("Sure you want to make this changes?") === false) {
+        return;
+    }
+
     const url = props.url + "/edit/" + props.note.id;
     const options = {
         method: "PATCH",
