@@ -7,6 +7,7 @@ const StyledButton = styled.button`
     border-radius: 8px;
     font-family: inherit;
     margin: 5px;
+    cursor: pointer;
 `;
 
 export { StyledButton };
