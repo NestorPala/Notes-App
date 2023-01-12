@@ -1,6 +1,20 @@
 export function AddNoteForm(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
+        const newNoteTitle = event.target.title.value;
+        const newNoteContent = event.target.content.value;
+
+        if (newNoteTitle === "" || newNoteTitle == null) {
+            alert("Title cannot be empty");
+            return;
+        }
+
+        if (newNoteContent === "" || newNoteContent == null) {
+            if (window.confirm("Sure you want to have empty content?") === false) {
+                return;
+            }
+        }
+
         const url = props.url + "/create";
         const options = {
             method: "POST",
@@ -8,8 +22,8 @@ export function AddNoteForm(props) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                title: event.target.title.value,
-                content: event.target.content.value
+                title: newNoteTitle,
+                content: newNoteContent
             })
         };
         fetch(url, options)

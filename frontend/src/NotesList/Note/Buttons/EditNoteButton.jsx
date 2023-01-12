@@ -2,11 +2,11 @@ import { StyledButton } from "./Buttons";
 
 function editNote(event, props) {
     event.preventDefault();
-    const newTitle = prompt("New title: ");
+    let newTitle = prompt("New title: ");
     
     if (newTitle === "" || newTitle == null) {
-        alert("Title cannot be empty");
-        return;
+        newTitle = props.note.title;
+        alert("Title has not changed");
     }
 
     const newContent = prompt("New content: ");

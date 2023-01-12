@@ -26,7 +26,14 @@ export function NotesList() {
     return (
         <div>
             <div className={styles.NotesList}>
-                {notes.map(note => <Note note={note} url={notesUrl} onUpdate={updateNotes} />)}
+                {notes.map(note => 
+                    <Note 
+                    key={note.id} 
+                    note={note} 
+                    url={notesUrl} 
+                    onUpdate={updateNotes} 
+                    />
+                )}
             </div>
             {(notes.length === 0) ? <NoNotesMessage /> : null}
             <AddNoteForm url={notesUrl} addNote={updateNotes} />

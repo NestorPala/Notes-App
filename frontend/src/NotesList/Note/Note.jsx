@@ -10,6 +10,7 @@ export function Note(props) {
       <h2>{props.note.title}</h2>
       <p>{props.note.content}</p>
       <div>
+        {(props.note.content === "") ? <p style={{fontStyle: "italic"}}>(Empty content)</p> : null}
         <EditNoteButton note={props.note} url={props.url} onEditNote={props.onUpdate} />
         <DeleteNoteButton note={props.note} url={props.url} onDeleteNote={props.onUpdate} />
         {
