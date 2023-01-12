@@ -4,15 +4,19 @@ import { RemoveNoteButton } from "./Buttons/RemoveNoteButton";
 import { ArchiveNoteButton } from "./Buttons/ArchiveNoteButton";
 import { UnarchiveNoteButton } from "./Buttons/UnarchiveNoteButton";
 
-export function Note({ title, content, isArchived }) {
+export function Note(props) {
   return (
     <div className={styles.Note}>
-      <h2>{title}</h2>
-      <p>{content}</p>
+      <h2>{props.note.title}</h2>
+      <p>{props.note.content}</p>
       <div>
-        <EditNoteButton />
-        <RemoveNoteButton />
-        {(isArchived === true) ? <UnarchiveNoteButton /> : <ArchiveNoteButton />}
+        <EditNoteButton note={props.note} url={props.url} onEdit={props.onUpdate} />
+        <RemoveNoteButton note={props.note} url={props.url} onRemove={props.onUpdate} />
+        {
+          (props.note.isArchived === true) 
+          ? <UnarchiveNoteButton note={props.note} url={props.url} onOnarchiveNote={props.onUpdate} /> 
+          : <ArchiveNoteButton note={props.note} url={props.url} onArchiveNote={props.onUpdate} />
+        }
       </div>
     </div>
   );

@@ -8,9 +8,9 @@ export function NotesList() {
     let notesUrl = "http://localhost:3000/notes";
 
     const [notes, setNotes] = useState(null);
-    useEffect(() => handleAddNote, []);
+    useEffect(() => updateNotes, []);
 
-    const handleAddNote = () => {
+    const updateNotes = () => {
         fetch(notesUrl)
             .then(response => response.json())
             .then(setNotes);
@@ -23,12 +23,10 @@ export function NotesList() {
     return (
         <div>
             <div className={styles.NotesList}>
-                {notes.map(note =>
-                    <Note key={note.id} title={note.title} content={note.content} />
-                )}
+                {notes.map(note => <Note note={note} url={notesUrl} onUpdate={updateNotes} />)}
             </div>
             {(notes.length === 0) ? <NoNotesMessage /> : null}
-            <AddNoteForm url={notesUrl} addNote={handleAddNote} />
+            <AddNoteForm url={notesUrl} addNote={updateNotes} />
         </div>
     );
 }
