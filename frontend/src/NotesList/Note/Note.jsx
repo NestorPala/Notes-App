@@ -11,12 +11,16 @@ export function Note(props) {
       <p>{props.note.content}</p>
       <div>
         {(props.note.content === "") ? <p style={{fontStyle: "italic"}}>(Empty content)</p> : null}
-        <EditNoteButton note={props.note} url={props.url} onEditNote={props.onUpdate} />
-        <DeleteNoteButton note={props.note} url={props.url} onDeleteNote={props.onUpdate} />
         {
-          (props.note.is_archived === true) 
-          ? <UnarchiveNoteButton note={props.note} url={props.url} onUnarchiveNote={props.onUpdate} /> 
-          : <ArchiveNoteButton note={props.note} url={props.url} onArchiveNote={props.onUpdate} />
+          (props.note.is_archived === false)
+          ? (
+            <div>
+              <EditNoteButton note={props.note} url={props.url} onEditNote={props.onUpdate} />
+              <ArchiveNoteButton note={props.note} url={props.url} onArchiveNote={props.onUpdate} />
+              <DeleteNoteButton note={props.note} url={props.url} onDeleteNote={props.onUpdate} />
+            </div>
+          )
+          : <UnarchiveNoteButton note={props.note} url={props.url} onUnarchiveNote={props.onUpdate} />
         }
       </div>
     </div>
