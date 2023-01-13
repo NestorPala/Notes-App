@@ -24,7 +24,10 @@ router.post("/create", async (req, res) => {
 
 router.patch("/edit/:id", getNote, async (req, res) => {
     try {
-        const updatedNote = await res.note.save();
+        const updatedNote = await res.note.update({
+            title: req.body.title,
+            content: req.body.content
+        });
         res.json(updatedNote);
     } catch (requestError) {
         res.status(400).json({ message: requestError.message });
