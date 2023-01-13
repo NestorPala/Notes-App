@@ -61,6 +61,10 @@ button:active {
   color: rgb(98, 53, 43);
 }
 
+.note-list-type {
+  margin-top: 5vh;
+}
+
 .note {
   margin: 20px;
   text-align: center;
@@ -88,6 +92,16 @@ button:active {
   padding: 20px;
   overflow-y: auto;
   height: 10vh;
+}
+
+.add-note-section {
+  margin-top: 5vh;
+}
+
+.add-note-warning {
+  margin: 3vh;
+  font-style: italic;
+  color: #b87251;
 }
 
 @media (max-width: 600px) {

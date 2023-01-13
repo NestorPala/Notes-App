@@ -35,8 +35,11 @@ export function AddNoteForm(props) {
             });
     };
     return (
-        <div>
+        <div className="add-note-section">
             <h3>Create a new note:</h3>
+            <p className="add-note-warning">
+                (Warning: notes will be deleted from server after 3 minutes)
+            </p>
             <form onSubmit={handleSubmit}>
                 <input style={{width: "30vw"}} name="title" type="text" placeholder="Note title"/>
                 <br />

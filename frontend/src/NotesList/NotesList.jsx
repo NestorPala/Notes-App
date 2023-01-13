@@ -28,7 +28,9 @@ export function NotesList(props) {
 
     return (
         <div>
-            <h2>{(props.is_archived === true) ? "Archived" : 'Active'} Notes</h2>
+            <h2 className="note-list-type">
+                {(props.is_archived === true) ? "Archived" : 'Active'} Notes
+            </h2>
             <div className={styles.NotesList}>
                 {
                     notes.map(note =>
