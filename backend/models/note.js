@@ -13,6 +13,11 @@ const noteSchema = new mongoose.Schema({
         type: Boolean,
         required: false,
     },
+    createdAt: { 
+        type: Date, 
+        expires: '3m', 
+        default: Date.now 
+    }
 });
 
 module.exports = mongoose.model("Note", noteSchema);
