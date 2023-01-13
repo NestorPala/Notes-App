@@ -11,6 +11,12 @@ app.use(cors({origin: "*"}));
 app.use(express.json());
 app.use("/notes", notesRouter);
 
+app.use(express.static(__dirname + '/../frontend/build'));
+
+app.get('/', (req, res) => {
+  res.sendFile('index.html');
+});
+
 mongoose.connect(process.env.DATABASE_URL)
 .then(
   () => {
