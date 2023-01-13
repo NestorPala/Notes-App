@@ -35,21 +35,24 @@ export function AddNoteForm(props) {
             });
     };
     return (
-        <form onSubmit={handleSubmit}>
-            <input style={{width: "30vw"}} name="title" type="text" placeholder="Note title"/>
-            <br />
-            <textarea 
-            style={{
-                width: "30vw", 
-                height: "15vw", 
-                overflowY: "scroll",
-                resize: "none"
-            }}
-            name="content" 
-            type="text" 
-            placeholder="Note content"/>
-            <br />
-            <button type="submit">Add note!</button>
-        </form>
+        <div>
+            <h3>Create a new note:</h3>
+            <form onSubmit={handleSubmit}>
+                <input style={{width: "30vw"}} name="title" type="text" placeholder="Note title"/>
+                <br />
+                <textarea 
+                style={{
+                    width: "30vw", 
+                    height: "15vw", 
+                    overflowY: "scroll",
+                    resize: "none"
+                }}
+                name="content" 
+                type="text" 
+                placeholder="Note content"/>
+                <br />
+                <button type="submit">Add note!</button>
+            </form>
+        </div>
     );
 }

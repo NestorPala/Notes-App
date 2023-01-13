@@ -32,13 +32,23 @@ textarea,
   border-radius: 5px;
   color: white;
   padding: 10px;
-  font-weight: bold;
-  font-style: italic;
-  
+  font-weight: bold; 
+}
+
+textarea {
+  color: rgb(184, 120, 109);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 button {
   cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(62, 18, 9);
+}
+button:active {
+  background-color: rgb(40, 9, 3);
 }
 
 ::placeholder {
