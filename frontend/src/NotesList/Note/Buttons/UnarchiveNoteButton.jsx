@@ -1,4 +1,5 @@
-import { StyledButton } from "./Buttons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 function unarchiveNote(event, props) {
     event.preventDefault();
@@ -13,8 +14,8 @@ function unarchiveNote(event, props) {
 
 export function UnarchiveNoteButton(props) {
     return (
-        <StyledButton onClick={e => unarchiveNote(e, props)}>
-            Unarchive
-        </StyledButton>
+        <button className="note-button" onClick={e => unarchiveNote(e, props)}>
+            <FontAwesomeIcon icon={faArrowUp} />
+        </button>
     );
 }

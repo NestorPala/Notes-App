@@ -1,4 +1,5 @@
-import { StyledButton } from "./Buttons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArchive } from '@fortawesome/free-solid-svg-icons';
 
 function archiveNote(event, props) {
     event.preventDefault();
@@ -13,8 +14,8 @@ function archiveNote(event, props) {
 
 export function ArchiveNoteButton(props) {
     return (
-        <StyledButton onClick={e => archiveNote(e, props)}>
-            Archive
-        </StyledButton>
+        <button className="note-button" onClick={e => archiveNote(e, props)}>
+            <FontAwesomeIcon icon={faArchive} />
+        </button>
     );
 }

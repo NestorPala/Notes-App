@@ -1,4 +1,5 @@
-import { StyledButton } from "./Buttons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function deleteNote(event, props) {
     event.preventDefault();
@@ -16,8 +17,8 @@ function deleteNote(event, props) {
 
 export function DeleteNoteButton(props) {
     return (
-        <StyledButton onClick={e => deleteNote(e, props)}>
-            Delete
-        </StyledButton>
+        <button className="note-button" onClick={e => deleteNote(e, props)}>
+            <FontAwesomeIcon icon={faTrash} />
+        </button>
     );
 }

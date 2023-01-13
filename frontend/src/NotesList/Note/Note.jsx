@@ -1,4 +1,3 @@
-import styles from "./Note.module.css";
 import { EditNoteButton } from "./Buttons/EditNoteButton";
 import { DeleteNoteButton } from "./Buttons/DeleteNoteButton";
 import { ArchiveNoteButton } from "./Buttons/ArchiveNoteButton";
@@ -6,9 +5,9 @@ import { UnarchiveNoteButton } from "./Buttons/UnarchiveNoteButton";
 
 export function Note(props) {
   return (
-    <div className={styles.Note}>
-      <h2>{props.note.title}</h2>
-      <div style={{wordWrap: "break-word"}}>
+    <div className="note">
+      <h2 className="note-title">{props.note.title}</h2>
+      <div className="note-content" style={{wordWrap: "break-word"}}>
         {props.note.content}
       </div>
       <div>

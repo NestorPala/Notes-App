@@ -1,4 +1,5 @@
-import { StyledButton } from "./Buttons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPencil } from '@fortawesome/free-solid-svg-icons';
 
 function editNote(event, props) {
     event.preventDefault();
@@ -39,8 +40,8 @@ function editNote(event, props) {
 
 export function EditNoteButton(props) {
     return (
-        <StyledButton onClick={e => editNote(e, props)}>
-            Edit
-        </StyledButton>
+        <button className="note-button" onClick={e => editNote(e, props)}>
+            <FontAwesomeIcon icon={faPencil} />
+        </button>
     );
 }
