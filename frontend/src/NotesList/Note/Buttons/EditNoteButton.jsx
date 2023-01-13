@@ -21,7 +21,7 @@ function editNote(event, props) {
         return;
     }
 
-    const url = props.url + "/edit/" + props.note.id;
+    const url = props.url + "/edit/" + props.note._id;
     const options = {
         method: "PATCH",
         headers : {

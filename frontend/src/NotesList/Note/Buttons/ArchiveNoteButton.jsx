@@ -2,7 +2,7 @@ import { StyledButton } from "./Buttons";
 
 function archiveNote(event, props) {
     event.preventDefault();
-    const url = props.url + "/archive/" + props.note.id;
+    const url = props.url + "/archive/" + props.note._id;
     const options = {
         method: "PATCH",
     };

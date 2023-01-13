@@ -5,7 +5,7 @@ function deleteNote(event, props) {
     if (window.confirm("Sure you want to delete this note?") === false) {
         return;
     }
-    const url = props.url + "/delete/" + props.note.id;
+    const url = props.url + "/delete/" + props.note._id;
     const options = {
         method: "DELETE",
     };

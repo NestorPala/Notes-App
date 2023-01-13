@@ -2,7 +2,7 @@ import { StyledButton } from "./Buttons";
 
 function unarchiveNote(event, props) {
     event.preventDefault();
-    const url = props.url + "/unarchive/" + props.note.id;
+    const url = props.url + "/unarchive/" + props.note._id;
     const options = {
         method: "PATCH",
     };

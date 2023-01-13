@@ -32,7 +32,7 @@ export function NotesList(props) {
                         (note.is_archived === props.is_archived)
                         ?
                         <Note 
-                        key={note.id} 
+                        key={note._id} 
                         note={note} 
                         url={notesUrl} 
                         onUpdate={updateNotes} 
