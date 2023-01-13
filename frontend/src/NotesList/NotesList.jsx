@@ -5,7 +5,10 @@ import { NoNotesMessage } from "./NoNotesMessage";
 import { AddNoteForm } from "./AddNoteForm";
 
 export function NotesList(props) {
-    let notesUrl = window.location.origin + "/notes";
+    const API_URL = (process.env.NODE_ENV === 'production')
+                    ? window.location.origin
+                    : process.env.REACT_APP_API_URL_DEV;
+    const notesUrl = API_URL + "/notes";
 
     const [notes, setNotes] = useState(null);
     useEffect(() => { (async () => await updateNotes())() } );
