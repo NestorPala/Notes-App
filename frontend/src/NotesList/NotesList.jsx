@@ -8,7 +8,7 @@ export function NotesList(props) {
     let notesUrl = "http://localhost:3000/notes";
 
     const [notes, setNotes] = useState(null);
-    useEffect(() => updateNotes);
+    useEffect(() => { (async () => await updateNotes())() } );
 
     const updateNotes = async (updateResponse = null) => {
         await fetch(notesUrl)
