@@ -10,8 +10,8 @@ export function NotesList(props) {
     const [notes, setNotes] = useState(null);
     useEffect(() => updateNotes);
 
-    const updateNotes = (updateResponse = null) => {
-        fetch(notesUrl)
+    const updateNotes = async (updateResponse = null) => {
+        await fetch(notesUrl)
             .then(response => response.json())
             .then(json => {
                 setNotes(json);
