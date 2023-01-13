@@ -7,7 +7,7 @@ Tools Used:
 * Mongoose
 * Express
 * React
-* Node
+* Node 16
 
 
 Features:
