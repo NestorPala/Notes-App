@@ -8,14 +8,14 @@ export function NotesList(props) {
     let notesUrl = "http://localhost:3000/notes";
 
     const [notes, setNotes] = useState(null);
-    useEffect(() => updateNotes, []);
+    useEffect(() => updateNotes);
 
-    const updateNotes = (updateResponse = {}) => {
+    const updateNotes = (updateResponse = null) => {
         fetch(notesUrl)
             .then(response => response.json())
             .then(json => {
                 setNotes(json);
-                console.log(updateResponse);
+                if (updateResponse != null) console.log(updateResponse);
             });
     };
 
