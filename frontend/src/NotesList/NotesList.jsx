@@ -5,7 +5,7 @@ import { NoNotesMessage } from "./NoNotesMessage";
 import { AddNoteForm } from "./AddNoteForm";
 
 export function NotesList(props) {
-    let notesUrl = window.location + "/notes";
+    let notesUrl = window.location.origin + "/notes";
 
     const [notes, setNotes] = useState(null);
     useEffect(() => { (async () => await updateNotes())() } );
