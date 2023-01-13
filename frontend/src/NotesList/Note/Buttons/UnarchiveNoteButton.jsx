@@ -13,8 +13,13 @@ function unarchiveNote(event, props) {
 };
 
 export function UnarchiveNoteButton(props) {
+    const title = "Unarchive";
     return (
-        <button className="note-button" onClick={e => unarchiveNote(e, props)}>
+        <button 
+        className="note-button" 
+        onClick={e => unarchiveNote(e, props)} 
+        onMouseEnter={e => props.onHover(title)} 
+        onMouseLeave={e => props.onHover("")}>
             <FontAwesomeIcon icon={faArrowUp} />
         </button>
     );

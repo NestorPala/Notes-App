@@ -13,8 +13,13 @@ function archiveNote(event, props) {
 };
 
 export function ArchiveNoteButton(props) {
+    const title = "Archive";
     return (
-        <button className="note-button" onClick={e => archiveNote(e, props)}>
+        <button 
+        className="note-button" 
+        onClick={e => archiveNote(e, props)} 
+        onMouseEnter={e => props.onHover(title)} 
+        onMouseLeave={e => props.onHover("")}>
             <FontAwesomeIcon icon={faArchive} />
         </button>
     );

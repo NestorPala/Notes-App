@@ -39,8 +39,13 @@ function editNote(event, props) {
 };
 
 export function EditNoteButton(props) {
+    const title = "Edit";
     return (
-        <button className="note-button" onClick={e => editNote(e, props)}>
+        <button 
+        className="note-button" 
+        onClick={e => editNote(e, props)} 
+        onMouseEnter={e => props.onHover(title)} 
+        onMouseLeave={e => props.onHover("")}>
             <FontAwesomeIcon icon={faPencil} />
         </button>
     );

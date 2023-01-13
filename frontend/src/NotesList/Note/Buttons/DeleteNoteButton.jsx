@@ -16,8 +16,13 @@ function deleteNote(event, props) {
 };
 
 export function DeleteNoteButton(props) {
+    const title = "Delete";
     return (
-        <button className="note-button" onClick={e => deleteNote(e, props)}>
+        <button 
+        className="note-button" 
+        onClick={e => deleteNote(e, props)} 
+        onMouseEnter={e => props.onHover(title)} 
+        onMouseLeave={e => props.onHover("")}>
             <FontAwesomeIcon icon={faTrash} />
         </button>
     );
