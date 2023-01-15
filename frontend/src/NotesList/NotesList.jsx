@@ -11,10 +11,10 @@ export function NotesList(props) {
     const notesUrl = API_URL + "/notes";
 
     const [notes, setNotes] = useState([]);
-    useEffect(() => { (async () => await updateNotes())() } );
+    useEffect(() => updateNotes());
 
-    const updateNotes = async (updateResponse = null) => {
-        await fetch(notesUrl)
+    const updateNotes = (updateResponse = null) => {
+        fetch(notesUrl)
             .then(response => response.json())
             .then(json => {
                 setNotes(json);
