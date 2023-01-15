@@ -10,7 +10,7 @@ export function NotesList(props) {
                     : process.env.REACT_APP_API_URL_DEV;
     const notesUrl = API_URL + "/notes";
 
-    const [notes, setNotes] = useState(null);
+    const [notes, setNotes] = useState([]);
     useEffect(() => { (async () => await updateNotes())() } );
 
     const updateNotes = async (updateResponse = null) => {
