@@ -51,10 +51,8 @@ export function NotesList(props) {
                     return <NoNotesMessage />;
                 }
             })()}
-            {
-                (props.is_archived === false)
-                ? <AddNoteForm url={notesUrl} addNote={updateNotes} />
-                : null
+            {(props.is_archived === false) 
+                && <AddNoteForm url={notesUrl} addNote={updateNotes} />
             }
         </div>
     );
