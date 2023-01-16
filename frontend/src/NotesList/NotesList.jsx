@@ -44,10 +44,6 @@ export function NotesList(props) {
     );
 }
 
-function NoNotesMessage() {
-    return <h2 className={styles.NoNotesMessage}>(No notes to show)</h2>
-}
-
 function MyNotes({notes, is_archived, updateNotes}) {
     const showedNotes = notes.filter(note => note.is_archived === is_archived);
     const renderNote = note => {
@@ -63,4 +59,8 @@ function MyNotes({notes, is_archived, updateNotes}) {
             {(showedNotes.length === 0) && <NoNotesMessage />}
         </div>
     )
+}
+
+function NoNotesMessage() {
+    return <h2 className={styles.NoNotesMessage}>(No notes to show)</h2>
 }
