@@ -45,11 +45,12 @@ export function NotesList(props) {
                     )
                 }
             </div>
-            {
-                (notes.filter(note => note.is_archived === props.is_archived).length === 0) 
-                ? <NoNotesMessage /> 
-                : null
-            }
+            {(() => {
+                const showedNotes = notes.filter(note => note.is_archived === props.is_archived);
+                if (showedNotes.length === 0) {
+                    return <NoNotesMessage />;
+                }
+            })()}
             {
                 (props.is_archived === false)
                 ? <AddNoteForm url={notesUrl} addNote={updateNotes} />
