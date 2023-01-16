@@ -3,12 +3,12 @@ import { Note } from "../Note/Note";
 import styles from "./NotesList.module.css";
 import { AddNoteForm } from "./AddNoteForm";
 
-export function NotesList(props) {
-    const API_URL = (process.env.NODE_ENV === 'production')
+const API_URL = (process.env.NODE_ENV === 'production')
                     ? window.location.origin
                     : process.env.REACT_APP_API_URL_DEV;
-    const notesUrl = API_URL + "/notes";
+const notesUrl = API_URL + "/notes";
 
+export function NotesList(props) {
     const [notes, setNotes] = useState([]);
     useEffect(() => updateNotes());
 
@@ -30,27 +30,13 @@ export function NotesList(props) {
             <h2 className="note-list-type">
                 {(props.is_archived === true) ? "Archived" : 'Active'} Notes
             </h2>
-            <div className={styles.NotesList}>
-                {
-                    notes.map(note =>
-                        (note.is_archived === props.is_archived)
-                        ?
-                        <Note 
-                        key={note._id} 
-                        note={note} 
-                        url={notesUrl} 
-                        onUpdate={updateNotes} 
-                        />
-                        : null
-                    )
-                }
-            </div>
-            {(() => {
-                const showedNotes = notes.filter(note => note.is_archived === props.is_archived);
-                if (showedNotes.length === 0) {
-                    return <NoNotesMessage />;
-                }
-            })()}
+
+            <MyNotes 
+            notes={notes} 
+            is_archived={props.is_archived} 
+            updateNotes={updateNotes} 
+            />
+
             {(props.is_archived === false) 
                 && <AddNoteForm url={notesUrl} addNote={updateNotes} />
             }
@@ -58,6 +44,23 @@ export function NotesList(props) {
     );
 }
 
-function NoNotesMessage(props) {
+function NoNotesMessage() {
     return <h2 className={styles.NoNotesMessage}>(No notes to show)</h2>
+}
+
+function MyNotes({notes, is_archived, updateNotes}) {
+    const showedNotes = notes.filter(note => note.is_archived === is_archived);
+    const renderNote = note => {
+        return (note.is_archived === is_archived) &&
+            <Note key={note._id} note={note} url={notesUrl} onUpdate={updateNotes} />;
+    };
+
+    return (
+        <div id="notes-list">
+            <div className={styles.NotesList}>
+                { notes.map(note => renderNote(note)) }
+            </div>
+            {(showedNotes.length === 0) && <NoNotesMessage />}
+        </div>
+    )
 }
