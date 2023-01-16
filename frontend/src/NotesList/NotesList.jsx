@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { Note } from "./Note/Note";
+import { Note } from "../Note/Note";
 import styles from "./NotesList.module.css";
-import { NoNotesMessage } from "./NoNotesMessage";
 import { AddNoteForm } from "./AddNoteForm";
 
 export function NotesList(props) {
@@ -58,4 +57,8 @@ export function NotesList(props) {
             }
         </div>
     );
+}
+
+function NoNotesMessage(props) {
+    return <h2 className={styles.NoNotesMessage}>(No notes to show)</h2>
 }

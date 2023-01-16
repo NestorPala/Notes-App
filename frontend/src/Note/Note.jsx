@@ -1,7 +1,7 @@
-import { EditNoteButton } from "./Buttons/EditNoteButton";
-import { DeleteNoteButton } from "./Buttons/DeleteNoteButton";
-import { ArchiveNoteButton } from "./Buttons/ArchiveNoteButton";
-import { UnarchiveNoteButton } from "./Buttons/UnarchiveNoteButton";
+import { EditNoteButton } from "./EditNoteButton";
+import { DeleteNoteButton } from "./DeleteNoteButton";
+import { ArchiveNoteButton } from "./ArchiveNoteButton";
+import { UnarchiveNoteButton } from "./UnarchiveNoteButton";
 import { useState } from "react";
 
 export function Note(props) {

@@ -3,6 +3,11 @@
     justify-content: center;
 }
 
+.NoNotesMessage {
+    margin-bottom: 10vh;
+    color: rgb(184, 120, 109);
+}
+
 @media (min-width: 600px) {
     .NotesList {
         grid-template-columns: repeat(auto-fill, 40vw);
