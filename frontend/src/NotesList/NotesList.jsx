@@ -1,19 +1,13 @@
 import { useState, useEffect } from "react";
 import { Note } from "../Note/Note";
 import styles from "./NotesList.module.css";
-import { AddNoteForm } from "./AddNoteForm";
-
-const API_URL = (process.env.NODE_ENV === 'production')
-                    ? window.location.origin
-                    : process.env.REACT_APP_API_URL_DEV;
-const notesUrl = API_URL + "/notes";
 
 export function NotesList(props) {
     const [notes, setNotes] = useState([]);
     useEffect(() => updateNotes());
 
     const updateNotes = (updateResponse = null) => {
-        fetch(notesUrl)
+        fetch(props.notesUrl)
             .then(response => response.json())
             .then(json => {
                 setNotes(json);
@@ -30,21 +24,17 @@ export function NotesList(props) {
             <h2 className="note-list-type">
                 {(props.is_archived === true) ? "Archived" : 'Active'} Notes
             </h2>
-
             <MyNotes 
             notes={notes} 
             is_archived={props.is_archived} 
-            updateNotes={updateNotes} 
+            updateNotes={updateNotes}
+            notesUrl={props.notesUrl}
             />
-
-            {(props.is_archived === false) 
-                && <AddNoteForm url={notesUrl} addNote={updateNotes} />
-            }
         </div>
     );
 }
 
-function MyNotes({notes, is_archived, updateNotes}) {
+function MyNotes({notes, is_archived, updateNotes, notesUrl}) {
     const showedNotes = notes.filter(note => note.is_archived === is_archived);
     const renderNote = note => {
         return (note.is_archived === is_archived) &&

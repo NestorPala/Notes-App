@@ -31,7 +31,6 @@ export function AddNoteForm(props) {
             .then(json => {
                 event.target.title.value = "";
                 event.target.content.value = "";
-                props.addNote(json);
             });
     };
     return (
