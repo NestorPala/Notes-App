@@ -41,7 +41,7 @@ function Tabs(props) {
                 {tabs.map(tab => {
                     return (
                         <button 
-                        className='tab' 
+                        className={ `tab ${(tab === activeTab) ? "active-tab" : ''}` } 
                         key={tabs.indexOf(tab)} 
                         onClick={() => setActiveTab(tab)}>
                             {tab.props.title}

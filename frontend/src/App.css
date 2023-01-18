@@ -113,6 +113,10 @@ button:active {
   border-radius: 10px;
 }
 
+.tab.active-tab {
+  background-color: #673f2d;
+}
+
 .tab {
   height: 100%;
   background-color: #b87251;
