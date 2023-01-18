@@ -11,17 +11,19 @@ const notesUrl = API_URL + "/notes";
 
 function App() {
     return (
-        <div className='main-content'>
-            <h1>My Notes</h1>
-            <Tabs>
-                <Tab title="Notes">
-                    <br /><br />
-                    <NotesList notesUrl={notesUrl} />
-                </Tab>
-                <Tab title="Create a note">
-                    <AddNoteForm url={notesUrl} />
-                </Tab>
-            </Tabs>
+        <div className='body-content'>
+            <div className="main-content">
+                <h1>My Notes</h1>
+                <Tabs>
+                    <Tab title="Notes">
+                        <br /><br />
+                        <NotesList notesUrl={notesUrl} />
+                    </Tab>
+                    <Tab title="Create a note">
+                        <AddNoteForm url={notesUrl} />
+                    </Tab>
+                </Tabs>
+            </div>
             <footer>
                 Nestor Fabian Palavecino Arnold
                 <Year />
