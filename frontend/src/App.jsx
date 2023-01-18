@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import { NotesList } from "./NotesList/NotesList";
 import { AddNoteForm } from "./AddNoteForm";
+import { Year } from "./Year";
 
 const API_URL = (process.env.NODE_ENV === 'production')
                 ? window.location.origin
@@ -10,7 +11,7 @@ const notesUrl = API_URL + "/notes";
 
 function App() {
     return (
-        <div>
+        <div className='main-content'>
             <h1>My Notes</h1>
             <Tabs>
                 <Tab title="Notes">
@@ -21,6 +22,10 @@ function App() {
                     <AddNoteForm url={notesUrl} />
                 </Tab>
             </Tabs>
+            <footer>
+                Nestor Fabian Palavecino Arnold
+                <Year />
+            </footer>
         </div>
     );
 }
