@@ -104,6 +104,28 @@ button:active {
   color: #b87251;
 }
 
+.content-tabs {
+  display: block;
+  width: 100%;
+  height: 15vh;
+  background-color: #b87251;
+  margin: 0;
+  border-radius: 10px;
+}
+
+.tab {
+  height: 100%;
+  background-color: #b87251;
+  margin: 0;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  border: none;
+  border-radius: 0px;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border-bottom: white 5px solid;
+}
+
 /* Footer always at the bottom */
 .body-content {
   margin: 0;

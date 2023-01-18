@@ -16,7 +16,6 @@ function App() {
                 <h1>My Notes</h1>
                 <Tabs>
                     <Tab title="Notes">
-                        <br /><br />
                         <NotesList notesUrl={notesUrl} />
                     </Tab>
                     <Tab title="Create a note">
@@ -37,15 +36,22 @@ function Tabs(props) {
     const [activeTab, setActiveTab] = useState(tabs[0]);
 
     return (
-        <div className="content-tabs">
-            {tabs.map(tab => {
-                return (
-                    <button key={tabs.indexOf(tab)} onClick={() => setActiveTab(tab)}>
-                        {tab.props.title}
-                    </button>
-                );
-            })}
-            { activeTab.props.children }
+        <div>
+            <div className="content-tabs">
+                {tabs.map(tab => {
+                    return (
+                        <button 
+                        className='tab' 
+                        key={tabs.indexOf(tab)} 
+                        onClick={() => setActiveTab(tab)}>
+                            {tab.props.title}
+                        </button>
+                    );
+                })}
+            </div>
+            <div className='content'>
+                { activeTab.props.children }
+            </div>
         </div>
     );
 }
