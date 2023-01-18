@@ -9,28 +9,43 @@ const API_URL = (process.env.NODE_ENV === 'production')
 const notesUrl = API_URL + "/notes";
 
 function App() {
-    const [archivedState, setArchivedState] = useState(false);
-    const archivedStateText = (archivedState === true) ? "Active" : "Archived";
-
     return (
         <div>
             <h1>My Notes</h1>
-            <Tab title="Notes">
-                <button onClick={() => setArchivedState(!archivedState)}>
-                    Show {archivedStateText} Notes
-                </button>
-                <NotesList is_archived={archivedState} notesUrl={notesUrl} />
-            </Tab>
-            <Tab title="Create a note">
-                <AddNoteForm url={notesUrl} />
-            </Tab>
+            <Tabs>
+                <Tab title="Notes">
+                    <br /><br />
+                    <NotesList notesUrl={notesUrl} />
+                </Tab>
+                <Tab title="Create a note">
+                    <AddNoteForm url={notesUrl} />
+                </Tab>
+            </Tabs>
+        </div>
+    );
+}
+
+function Tabs(props) {
+    const tabs = props.children;
+    const [activeTab, setActiveTab] = useState(tabs[0]);
+
+    return (
+        <div className="content-tabs">
+            {tabs.map(tab => {
+                return (
+                    <button key={tabs.indexOf(tab)} onClick={() => setActiveTab(tab)}>
+                        {tab.props.title}
+                    </button>
+                );
+            })}
+            { activeTab.props.children }
         </div>
     );
 }
 
 function Tab(props) {
     return (
-        <div id="content-tab">
+        <div className="content-tab">
             <h2>{props.title}</h2>
             {props.children}
         </div>

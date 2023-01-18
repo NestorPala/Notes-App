@@ -6,6 +6,9 @@ export function NotesList(props) {
     const [notes, setNotes] = useState([]);
     useEffect(() => updateNotes());
 
+    const [archivedState, setArchivedState] = useState(false);
+    const archivedStateText = (archivedState === true) ? "Active" : "Archived";
+
     const updateNotes = (updateResponse = null) => {
         fetch(props.notesUrl)
             .then(response => response.json())
@@ -16,17 +19,20 @@ export function NotesList(props) {
     };
 
     if (notes == null) {
-        return <NoNotesMessage />
+        return <NoNotesMessage />;
     }
 
     return (
         <div>
+            <button onClick={() => setArchivedState(!archivedState)}>
+                Show {archivedStateText} Notes
+            </button>
             <h2 className="note-list-type">
-                {(props.is_archived === true) ? "Archived" : 'Active'} Notes
+                {(archivedState === true) ? "Archived" : 'Active'} Notes
             </h2>
             <MyNotes 
             notes={notes} 
-            is_archived={props.is_archived} 
+            is_archived={archivedState} 
             updateNotes={updateNotes}
             notesUrl={props.notesUrl}
             />
@@ -48,9 +54,9 @@ function MyNotes({notes, is_archived, updateNotes, notesUrl}) {
             </div>
             {(showedNotes.length === 0) && <NoNotesMessage />}
         </div>
-    )
+    );
 }
 
 function NoNotesMessage() {
-    return <h2 className={styles.NoNotesMessage}>(No notes to show)</h2>
+    return <h2 className={styles.NoNotesMessage}>(No notes to show)</h2>;
 }
