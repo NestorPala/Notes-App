@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 
 function editNote(event, props) {
     event.preventDefault();
@@ -23,19 +24,16 @@ function editNote(event, props) {
     }
 
     const url = props.url + "/edit/" + props.note._id;
-    const options = {
-        method: "PATCH",
+    const data = {
+        title: newTitle,
+        content: newContent
+    };
+    const config = {
         headers : {
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            title: newTitle,
-            content: newContent
-        })
+        }
     };
-    fetch(url, options)
-        .then(res => res.json())
-        .then(json => props.onEditNote(json));
+    axios.patch(url, data, config).then(json => props.onEditNote(json));
 };
 
 export function EditNoteButton(props) {

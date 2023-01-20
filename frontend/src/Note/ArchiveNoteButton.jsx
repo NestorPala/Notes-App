@@ -1,15 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArchive } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 
 function archiveNote(event, props) {
     event.preventDefault();
     const url = props.url + "/archive/" + props.note._id;
-    const options = {
-        method: "PATCH",
-    };
-    fetch(url, options)
-        .then(res => res.json())
-        .then(json => props.onArchiveNote(json));
+    axios.patch(url).then(json => props.onArchiveNote(json));
 };
 
 export function ArchiveNoteButton(props) {

@@ -1,21 +1,17 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { Note } from "../Note/Note";
 import styles from "./NotesList.module.css";
 
 export function NotesList(props) {
-    const [notes, setNotes] = useState([]);
-    useEffect(() => updateNotes());
-
     const [archivedState, setArchivedState] = useState(false);
     const archivedStateText = (archivedState === true) ? "Active" : "Archived";
 
-    const updateNotes = (updateResponse = null) => {
-        fetch(props.notesUrl)
-            .then(response => response.json())
-            .then(json => {
-                setNotes(json);
-                if (updateResponse != null) console.log(updateResponse);
-            });
+    const [notes, setNotes] = useState([]);
+    useEffect(() => updateNotes());
+
+    const updateNotes = () => {
+        axios.get(props.notesUrl).then(response => setNotes(response.data));
     };
 
     if (notes == null) {
@@ -43,8 +39,8 @@ export function NotesList(props) {
 function MyNotes({notes, is_archived, updateNotes, notesUrl}) {
     const showedNotes = notes.filter(note => note.is_archived === is_archived);
     const renderNote = note => {
-        return (note.is_archived === is_archived) &&
-            <Note key={note._id} note={note} url={notesUrl} onUpdate={updateNotes} />;
+        return note.is_archived === is_archived &&
+                <Note key={note._id} note={note} url={notesUrl} onUpdate={updateNotes} />;
     };
 
     return (

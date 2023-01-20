@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export function AddNoteForm(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -16,21 +18,20 @@ export function AddNoteForm(props) {
         }
 
         const url = props.url + "/create";
-        const options = {
-            method: "POST",
+        const data = {
+            title: newNoteTitle,
+            content: newNoteContent
+        };
+        const config = {
             headers : {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                title: newNoteTitle,
-                content: newNoteContent
-            })
-        };
-        fetch(url, options)
-            .then(res => res.json())
+        }
+        axios.post(url, data, config)
             .then(json => {
                 event.target.title.value = "";
                 event.target.content.value = "";
+                console.log(json);
             });
     };
     return (
