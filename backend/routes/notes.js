@@ -67,7 +67,6 @@ router.get("/", async (req, res) => {
     }
 });
 
-
 // Note by id
 router.get("/get/:id", getNote, async (req, res) => {
     try {
@@ -77,7 +76,6 @@ router.get("/get/:id", getNote, async (req, res) => {
         res.status(500).json({ message: serverError.message });
     }
 });
-
 
 // Non-active notes
 router.get("/archived", async (req, res) => {
